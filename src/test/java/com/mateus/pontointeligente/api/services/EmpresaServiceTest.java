@@ -23,6 +23,7 @@ import com.mateus.pontointeligente.api.repositories.EmpresaRepository;
 @SpringBootTest
 @ActiveProfiles("test")
 public class EmpresaServiceTest {
+
 	@MockBean
 	private EmpresaRepository empresaRepository;
 
@@ -43,11 +44,12 @@ public class EmpresaServiceTest {
 
 		assertTrue(empresa.isPresent());
 	}
-	
+
 	@Test
 	public void testPersistirEmpresa() {
 		Empresa empresa = this.empresaService.persistir(new Empresa());
 
 		assertNotNull(empresa);
 	}
+
 }

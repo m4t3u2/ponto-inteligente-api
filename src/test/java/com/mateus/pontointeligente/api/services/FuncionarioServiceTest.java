@@ -23,6 +23,7 @@ import com.mateus.pontointeligente.api.repositories.FuncionarioRepository;
 @SpringBootTest
 @ActiveProfiles("test")
 public class FuncionarioServiceTest {
+
 	@MockBean
 	private FuncionarioRepository funcionarioRepository;
 
@@ -32,7 +33,8 @@ public class FuncionarioServiceTest {
 	@Before
 	public void setUp() throws Exception {
 		BDDMockito.given(this.funcionarioRepository.save(Mockito.any(Funcionario.class))).willReturn(new Funcionario());
-		BDDMockito.given(this.funcionarioRepository.findById(Mockito.anyLong())).willReturn(Optional.of(new Funcionario()));
+		BDDMockito.given(this.funcionarioRepository.findById(Mockito.anyLong()))
+				.willReturn(Optional.of(new Funcionario()));
 		BDDMockito.given(this.funcionarioRepository.findByEmail(Mockito.anyString())).willReturn(new Funcionario());
 		BDDMockito.given(this.funcionarioRepository.findByCpf(Mockito.anyString())).willReturn(new Funcionario());
 	}
@@ -64,4 +66,5 @@ public class FuncionarioServiceTest {
 
 		assertTrue(funcionario.isPresent());
 	}
+
 }

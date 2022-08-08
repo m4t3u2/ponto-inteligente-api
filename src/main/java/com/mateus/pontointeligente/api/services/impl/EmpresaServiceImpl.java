@@ -1,4 +1,5 @@
 package com.mateus.pontointeligente.api.services.impl;
+
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -29,4 +30,5 @@ public class EmpresaServiceImpl implements EmpresaService {
 		log.info("Persistindo empresa: {}", empresa);
 		return this.empresaRepository.save(empresa);
 	}
+
 }

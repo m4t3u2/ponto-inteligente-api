@@ -1,5 +1,6 @@
 package com.mateus.pontointeligente.api.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -21,7 +22,7 @@ import com.mateus.pontointeligente.api.enums.TipoEnum;
 
 @Entity
 @Table(name = "lancamento")
-public class Lancamento {
+public class Lancamento implements Serializable {
 
 	private static final long serialVersionUID = 6524560251526772839L;
 
@@ -38,7 +39,7 @@ public class Lancamento {
 	}
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -65,7 +66,7 @@ public class Lancamento {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	@Column(name = "localizacao", nullable = true)
 	public String getLocalizacao() {
 		return localizacao;
@@ -111,18 +112,18 @@ public class Lancamento {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-	
+
 	@PreUpdate
-    public void preUpdate() {
-        dataAtualizacao = new Date();
-    }
-     
-    @PrePersist
-    public void prePersist() {
-        final Date atual = new Date();
-        dataCriacao = atual;
-        dataAtualizacao = atual;
-    }
+	public void preUpdate() {
+		dataAtualizacao = new Date();
+	}
+
+	@PrePersist
+	public void prePersist() {
+		final Date atual = new Date();
+		dataCriacao = atual;
+		dataAtualizacao = atual;
+	}
 
 	@Override
 	public String toString() {

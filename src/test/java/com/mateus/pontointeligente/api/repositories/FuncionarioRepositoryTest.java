@@ -23,7 +23,7 @@ import com.mateus.pontointeligente.api.utils.PasswordUtils;
 @SpringBootTest
 @ActiveProfiles("test")
 public class FuncionarioRepositoryTest {
-	
+
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 
